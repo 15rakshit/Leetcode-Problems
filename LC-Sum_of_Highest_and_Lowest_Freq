@@ -1,0 +1,27 @@
+// .values() => is method of hashmap, .getvalue() => is method of entry
+
+
+class Solution {
+    public int sumHighestAndLowestFrequency(int[] nums) {
+      
+        int n = nums.length;
+
+        int maxFreq = 0, minFreq = n;
+
+        Map<Integer, Integer> mp = new HashMap<>();
+
+        // create a map and store the values accly 
+        for(int n1 : nums){
+
+            mp.put(n1, mp.getOrDefault(n1, 0) + 1);
+        }
+
+        // iterate the frequncies and get the addition
+        for(int freq : mp.values()){
+            maxFreq = Math.max(maxFreq, freq);
+            minFreq = Math.min(minFreq, freq);
+        }
+
+        return maxFreq + minFreq;
+    }
+}
