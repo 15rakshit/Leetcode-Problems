@@ -1,0 +1,33 @@
+class Solution {
+    public int maxFrequencyElements(int[] nums) {
+        
+        // declaring the hash array
+        Map<Integer, Integer> freq = new HashMap<>();
+
+        // setting up the variables accly
+        int maxFreq = 0;
+        int totalfreq = 0;
+
+        // iterate inside the nums array, using the for-each loop as indexing is not that imp now
+
+        // set the values of the hash array created
+        for(int n : nums){
+            freq.put(n, freq.getOrDefault(n,0) + 1);
+
+            // get the values of the hashmap. .get(key) => gives the particular value
+            int f = freq.get(n);
+
+
+            //normal operation to get the total cnt accly
+            if(f > maxFreq){
+                maxFreq = f;
+                totalfreq = f;
+            }else if(f == maxFreq){
+                totalfreq = totalfreq + f;
+            }
+
+        }
+
+            return totalfreq;
+    }
+}
